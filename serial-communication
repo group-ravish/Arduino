@@ -1,0 +1,201 @@
+#define segA 6
+#define segB 7
+#define segC 8
+#define segD 9
+#define segE 10
+#define segF 11
+#define segG 12
+
+int COUNT=0;
+
+
+void setup(){
+
+
+  pinMode(6, OUTPUT);
+  pinMode(7, OUTPUT);
+  pinMode(8, OUTPUT);
+  pinMode(9, OUTPUT);
+  pinMode(10, OUTPUT);
+  pinMode(11, OUTPUT);
+  pinMode(12, OUTPUT);
+  pinMode(13, OUTPUT);
+
+  Serial.begin(9600);
+  while(!Serial){
+
+
+  }
+
+
+  Serial.println("Welcome all. I am Arduino");
+
+
+}
+
+
+void loop(){
+
+
+  switch (COUNT){
+
+    case 0:
+
+      digitalWrite(segA, HIGH);
+      digitalWrite(segB, HIGH);
+      digitalWrite(segC, HIGH);
+      digitalWrite(segD, HIGH);
+      digitalWrite(segE, HIGH);
+      digitalWrite(segF, HIGH);
+      digitalWrite(segG, LOW);
+      digitalWrite(13, HIGH);
+      
+      break;
+
+    case 1:
+
+
+      digitalWrite(segA, LOW);
+      digitalWrite(segB, HIGH);
+      digitalWrite(segC, HIGH);
+      digitalWrite(segD, LOW);
+      digitalWrite(segE, LOW);
+      digitalWrite(segF, LOW);
+      digitalWrite(segG, LOW);
+      digitalWrite(13, LOW);
+      break;
+
+
+    case 2:
+
+
+      digitalWrite(segA, HIGH);
+      digitalWrite(segB, HIGH);
+      digitalWrite(segC, LOW);
+      digitalWrite(segD, HIGH);
+      digitalWrite(segE, HIGH);
+      digitalWrite(segF, LOW);
+      digitalWrite(segG, HIGH);
+      digitalWrite(13, HIGH);
+      break;
+ 
+
+    case 3:
+    
+      digitalWrite(segA, HIGH);
+      digitalWrite(segB, HIGH);
+      digitalWrite(segC, HIGH);
+      digitalWrite(segD, HIGH);
+      digitalWrite(segE, LOW);
+      digitalWrite(segF, LOW);
+      digitalWrite(segG, HIGH);
+      digitalWrite(13, LOW);
+
+
+    break;
+
+
+    case 4:
+
+
+      digitalWrite(segA, LOW);
+      digitalWrite(segB, HIGH);
+      digitalWrite(segC, HIGH);
+      digitalWrite(segD, LOW);
+      digitalWrite(segE, LOW);
+      digitalWrite(segF, HIGH);
+      digitalWrite(segG, HIGH);
+      digitalWrite(13, HIGH);
+
+
+    break;
+
+ 
+    case 5:
+
+
+      digitalWrite(segA, HIGH);
+      digitalWrite(segB, LOW);
+      digitalWrite(segC, HIGH);
+      digitalWrite(segD, HIGH);
+      digitalWrite(segE, LOW);
+      digitalWrite(segF, HIGH);
+      digitalWrite(segG, HIGH);
+      digitalWrite(13, LOW);
+
+
+    break;
+
+
+    case 6:
+
+
+      digitalWrite(segA, HIGH);
+      digitalWrite(segB, LOW);
+      digitalWrite(segC, HIGH);
+      digitalWrite(segD, HIGH);
+      digitalWrite(segE, HIGH);
+      digitalWrite(segF, HIGH);
+      digitalWrite(segG, HIGH);
+      digitalWrite(13, HIGH);
+
+
+    break;
+
+
+    case 7:
+
+
+      digitalWrite(segA, HIGH);
+      digitalWrite(segB, HIGH);
+      digitalWrite(segC, HIGH);
+      digitalWrite(segD, LOW);
+      digitalWrite(segE, LOW);
+      digitalWrite(segF, LOW);
+      digitalWrite(segG, LOW);
+      digitalWrite(13, LOW);
+
+
+    break;
+
+
+    case 8:
+
+
+      digitalWrite(segA, HIGH);
+      digitalWrite(segB, HIGH);
+      digitalWrite(segC, HIGH);
+      digitalWrite(segD, HIGH);
+      digitalWrite(segE, HIGH);
+      digitalWrite(segF, HIGH);
+      digitalWrite(segG, HIGH);
+      digitalWrite(13, HIGH);
+      
+
+    break;
+  
+
+    case 9:
+
+      digitalWrite(segA, HIGH);
+      digitalWrite(segB, HIGH);
+      digitalWrite(segC, HIGH);
+      digitalWrite(segD, LOW);
+      digitalWrite(segE, LOW);
+      digitalWrite(segF, HIGH);
+      digitalWrite(segG, HIGH);
+      digitalWrite(13, LOW);
+
+
+    break;
+    
+    break;
+
+
+}
+
+  while(!Serial.available());
+  COUNT = Serial.read()-48;
+  Serial.println(COUNT);
+
+}
