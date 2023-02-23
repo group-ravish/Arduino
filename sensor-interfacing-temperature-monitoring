@@ -1,0 +1,48 @@
+const int lm35_pin = A0;
+
+
+void setup(){
+
+  pinMode(5, OUTPUT);
+  pinMode(6, OUTPUT);
+  pinMode(7, OUTPUT);
+  
+  Serial.begin(9600);
+  
+}
+
+void loop(){
+
+  int in=analogRead(A0);
+  int yo=map(in,20,358,-40,125);
+   
+  Serial.println(yo);
+
+  if(yo<=20)
+  {
+  
+  	digitalWrite(5,LOW);
+    digitalWrite(6,LOW);
+    digitalWrite(7,HIGH);
+    
+  }
+   if(yo>20 && yo<100)
+  {
+  
+  	digitalWrite(5,LOW);
+    digitalWrite(6,HIGH);
+    digitalWrite(7,LOW);
+    
+  }
+ 
+  else if(yo>=100){
+ 
+  	digitalWrite(5,HIGH);
+    digitalWrite(6,LOW);
+    digitalWrite(7,LOW);
+ 
+  }
+ 
+  delay(1000);     // Wait for 1000 millisecond(s)
+  
+}
