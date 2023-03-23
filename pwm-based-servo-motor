@@ -1,0 +1,27 @@
+#include <Servo.h>  
+  
+Servo myservo;  
+
+  
+int potentioPIN = A0;  
+int value;   
+  
+void setup()   
+{  
+  myservo.attach(9);
+  Serial.begin(9600);
+}
+
+void loop()   
+{  
+  value = analogRead(potentioPIN);              
+    
+  value = map(value, 0, 1023, 0, 255);       
+  myservo.write(value);   
+  delay(1000);   
+  value = map(value, 1023, 0, 255, 0);   
+  myservo.write(value);
+  Serial.println(value);
+  delay(1000);                             
+  
+} 
