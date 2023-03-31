@@ -1,1 +1,25 @@
+#include <Wire.h>
 
+int analogIN = 0;
+int msg = 0;
+
+void setup() {
+  pinMode(A0, INPUT);
+  // Start the I2C Bus as Master
+  Wire.begin();
+  Serial.begin(9600);
+  Serial.print("Welcome to I2C Demo. I am Arduino 1");
+}
+
+void loop(){
+  analogIN=analogRead(A0);
+  msg = map(analogIN, 0, 1023, 0, 255);
+ 
+  Wire.beginTransmission(9); // transmit to device #9
+  Wire.write(msg);              // sends x
+  Wire.endTransmission();    // stop transmitting
+ 
+ 
+  Serial.println(msg);
+  delay(500);
+}
